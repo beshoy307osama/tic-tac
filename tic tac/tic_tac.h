@@ -1,21 +1,8 @@
 #include <iostream>
-#include <vector>
-using namespace std;
-struct moved {
-	int row;
-	int col;
-};
-
-
 class tic_tac
 {
 private:
-	char grid[3][3];
-	moved moved_count[9];
-
-
-
-	
+	char grid[3][3];	
 public:
 	tic_tac();
 	void display_grid();

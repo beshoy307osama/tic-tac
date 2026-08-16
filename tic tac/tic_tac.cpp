@@ -72,15 +72,14 @@ void tic_tac::play_game(char player)
 	int row, col;
 	cout << "Player " << player << ", enter your move (row and column): ";
 	cin >> row >> col;
-	if (row < 0 || row > 2 || col < 0 || col > 2 || (moved_count->col == col && moved_count->row == row)) {
+	if (row < 0 || row > 2 || col < 0 || col > 2 || grid[row][col] != ' ') {
 		cout << "Invalid move. Try again.\n";
 		play_game(player);
 		return;
 	}
 
 	grid[row][col] = player;
-	moved_count->col=col;
-	moved_count->row=row;
+	
 
 }
 
