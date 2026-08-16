@@ -1,5 +1,6 @@
 #include "tic_tac.h"
 #include <iostream>
+#include<random>
 using namespace std;
 
 // Initialize the grid with empty spaces so i can display it properly
@@ -10,8 +11,6 @@ tic_tac::tic_tac()
 			grid[i][j] = ' ';
 		}
 	}
-	Xwins = 0;
-	Owins = 0;
 }
 
 // Display the grid in a nice format
@@ -68,7 +67,39 @@ bool tic_tac::check_draw()
 	return true;
 }
 
-void tic_tac::play_game()
+void tic_tac::play_game(char player)
 {
+	int row, col;
+	cout << "Player " << player << ", enter your move (row and column): ";
+	cin >> row >> col;
+	if (row < 0 || row > 2 || col < 0 || col > 2 || (moved_count->col == col && moved_count->row == row)) {
+		cout << "Invalid move. Try again.\n";
+		play_game(player);
+		return;
+	}
+
+	grid[row][col] = player;
+	moved_count->col=col;
+	moved_count->row=row;
+
+}
+
+void tic_tac::random_player()
+{
+	random_device rd;
+	mt19937 gen(rd());
+	uniform_int_distribution<int> dist(0, 1);
+
+	int starter = dist(gen);
+	if (starter == 0){
+		cout << "Player X starts!\n";
+		current_player = 'X';
+		next_player = 'O';
+	}
+	else{
+		cout << "Player O starts!\n";
+		current_player = 'O';
+		next_player = 'X';
+	}
 
 }
