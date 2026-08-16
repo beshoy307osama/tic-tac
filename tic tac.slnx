@@ -1,0 +1,7 @@
+<Solution>
+  <Configurations>
+    <Platform Name="x64" />
+    <Platform Name="x86" />
+  </Configurations>
+  <Project Path="tic tac/tic tac.vcxproj" Id="df4e06cd-081f-4d9e-b335-d9cd14b4315c" />
+</Solution>
